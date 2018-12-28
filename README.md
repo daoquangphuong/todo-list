@@ -2,7 +2,7 @@
 
 ## 1. UI/UX
 
-
+![UI](https://github.com/daoquangphuong/todo-list/blob/master/UI.png?raw=true "Optional Title")
 
 ## 2.Technical requirements 
 - a. Use codesandbox to do the test
