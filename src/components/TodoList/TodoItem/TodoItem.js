@@ -12,7 +12,7 @@ export default class TodoItem extends React.PureComponent {
     const isChecked = data.get("status") === constants.DONE;
     const text = data.get("text");
     return (
-      <div>
+      <div className="todoItem">
         <MyCheckbox
           onChange={() => {
             if (

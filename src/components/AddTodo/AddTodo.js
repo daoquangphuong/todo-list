@@ -13,11 +13,12 @@ export default class AddToDo extends React.PureComponent {
         }}
       >
         <MyTextInput
+          maxlength={100}
           value={data.get("text")}
           onChange={event => {
             onChange("todo", "text", event.target.value);
           }}
-          placeholder="Enter todo name here"
+          placeholder="Enter todo name here (max length of 100 chars)"
         />
       </form>
     );

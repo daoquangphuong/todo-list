@@ -1,0 +1,13 @@
+.checkboxWrapper {
+  cursor: pointer;
+}
+
+.checkbox {
+  cursor: pointer;
+}
+
+.checkboxLabel {
+  margin-left: 10px;
+  font-size: 16px;
+  word-break: break-all;
+}

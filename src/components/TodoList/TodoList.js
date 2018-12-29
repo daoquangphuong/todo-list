@@ -7,8 +7,12 @@ import "./styles.css";
 export default class TodoList extends React.PureComponent {
   render() {
     const { dataMap, data } = this.props;
-    return data.map(id => (
-      <TodoItemContainer key={id} data={dataMap.get(id)} />
-    ));
+    return (
+      <div className="todoList">
+        {data.map(id => (
+          <TodoItemContainer key={id} data={dataMap.get(id)} />
+        ))}
+      </div>
+    );
   }
 }

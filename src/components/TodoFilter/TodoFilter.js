@@ -16,16 +16,18 @@ export default class TodoFilter extends React.PureComponent {
     const { filterBy, onChange } = this.props;
     return (
       <div>
-        <span>Filter</span>
-        {filterList.map(item => (
-          <MyButton
-            key={item.id}
-            onClick={onChange(item.id)}
-            color={filterBy === item.id ? "green" : "default"}
-          >
-            {item.text}
-          </MyButton>
-        ))}
+        <span className="filterLabel">Filter</span>
+        <div className="filterActions">
+          {filterList.map(item => (
+            <MyButton
+              key={item.id}
+              onClick={onChange(item.id)}
+              color={filterBy === item.id ? "green" : "default"}
+            >
+              {item.text}
+            </MyButton>
+          ))}
+        </div>
       </div>
     );
   }

@@ -1,0 +1,23 @@
+.todoItem {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  transition: all 250ms ease-in-out 100ms;
+}
+
+.todoItem:hover {
+  color: #fff !important;
+  background-color: #337ab7 !important;
+  border-color: #2e6da4 !important;
+}
+
+.todoItem > * {
+  margin: 10px;
+}
+
+.todoItem > *:first-child {
+  flex: 1;
+  width: 100%;
+}

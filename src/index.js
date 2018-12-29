@@ -1,5 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
+import "normalize.css";
 
 import { AppProvider } from "./contexts/app";
 import AddTodoContainer from "./components/AddTodo/Container";
@@ -11,12 +12,19 @@ import "./styles.css";
 
 function App() {
   return (
-    <div className="TodoApp">
+    <div className="todoApp">
       <h1>Todo App</h1>
-      <AddTodoContainer />
-      <TodoListContainer />
-      <ToggleAllContainer />
-      <TodoFilterContainer />
+      <div className="block todoActions">
+        <ToggleAllContainer />
+        <TodoFilterContainer />
+      </div>
+      <div className="block">
+        <AddTodoContainer />
+      </div>
+
+      <div className="block todoListBlock">
+        <TodoListContainer />
+      </div>
     </div>
   );
 }

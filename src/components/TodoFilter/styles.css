@@ -1,0 +1,19 @@
+.filterLabel {
+  margin-right: 10px;
+}
+
+.filterActions {
+  display: inline-block;
+}
+
+.filterActions > * {
+  margin: 2px;
+}
+
+.filterActions > *:first-child {
+  margin-left: 0;
+}
+
+.filterActions > *:last-child {
+  margin-right: 0;
+}

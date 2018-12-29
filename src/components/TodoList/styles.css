@@ -1,0 +1,8 @@
+.todoList {
+  width: 100%;
+  border: 1px solid #ccc;
+}
+
+.todoList > *:nth-child(2n) {
+  background: #ccc;
+}
