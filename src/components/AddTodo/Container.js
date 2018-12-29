@@ -8,9 +8,9 @@ export default () => {
     <AppConsumer>
       {context => (
         <AddTodo
-          data={context.app.getIn(["form", "todo"]).toJS()}
+          data={context.app.getIn(["form", "todo"])}
           onSubmit={context.add}
-          onChange={context.updateFormValues("todo")}
+          onChange={context.updateFormValues}
         />
       )}
     </AppConsumer>

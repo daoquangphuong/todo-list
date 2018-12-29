@@ -4,6 +4,11 @@ import TodoItemContainer from "./TodoItem/Container";
 
 import "./styles.css";
 
-export default ({ dataMap, data }) => {
-  return data.map(id => <TodoItemContainer key={id} data={dataMap[id]} />);
-};
+export default class TodoList extends React.PureComponent {
+  render() {
+    const { dataMap, data } = this.props;
+    return data.map(id => (
+      <TodoItemContainer key={id} data={dataMap.get(id)} />
+    ));
+  }
+}
