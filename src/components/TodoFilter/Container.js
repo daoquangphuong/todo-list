@@ -3,7 +3,7 @@ import React from "react";
 import { AppConsumer } from "../../contexts/app";
 import TodoFilter from "./TodoFilter";
 
-export default ({ data }) => {
+export default () => {
   return (
     <AppConsumer>
       {context => (

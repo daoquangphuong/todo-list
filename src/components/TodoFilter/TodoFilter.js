@@ -11,19 +11,22 @@ const filterList = [
   { id: constants.ACTIVE, text: "Active" }
 ];
 
-export default ({ filterBy, onChange }) => {
-  return (
-    <div>
-      <span>Filter</span>
-      {filterList.map(item => (
-        <MyButton
-          key={item.id}
-          onClick={onChange(item.id)}
-          color={filterBy === item.id ? "green" : "default"}
-        >
-          {item.text}
-        </MyButton>
-      ))}
-    </div>
-  );
-};
+export default class TodoFilter extends React.PureComponent {
+  render() {
+    const { filterBy, onChange } = this.props;
+    return (
+      <div>
+        <span>Filter</span>
+        {filterList.map(item => (
+          <MyButton
+            key={item.id}
+            onClick={onChange(item.id)}
+            color={filterBy === item.id ? "green" : "default"}
+          >
+            {item.text}
+          </MyButton>
+        ))}
+      </div>
+    );
+  }
+}

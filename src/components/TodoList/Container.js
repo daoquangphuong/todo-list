@@ -8,8 +8,8 @@ export default () => {
     <AppConsumer>
       {context => (
         <TodoList
-          dataMap={context.app.get("todoMap").toJS()}
-          data={context.app.get("todoIdList").toJS()}
+          dataMap={context.app.get("todoMap")}
+          data={context.app.get("todoIdList")}
         />
       )}
     </AppConsumer>

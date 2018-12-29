@@ -2,11 +2,14 @@ import React from "react";
 
 import "./styles.css";
 
-export default ({ className, label, ...props }) => {
-  return (
-    <label>
-      <input type="checkbox" className={`checkbox ${className}`} {...props} />
-      {label}
-    </label>
-  );
-};
+export default class MyCheckbox extends React.PureComponent {
+  render() {
+    const { className, label, ...props } = this.props;
+    return (
+      <label>
+        <input type="checkbox" className={`checkbox ${className}`} {...props} />
+        {label}
+      </label>
+    );
+  }
+}

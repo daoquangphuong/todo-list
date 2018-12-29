@@ -15,15 +15,12 @@ const AppContext = React.createContext();
 
 export const AppConsumer = AppContext.Consumer;
 
-export class AppProvider extends React.Component {
+export class AppProvider extends React.PureComponent {
   state = {
     app: DEFAULT_STATE,
-    updateFormValues: formName => values => {
+    updateFormValues: (formName, field, value) => {
       const { app } = this.state;
-      const newAppState = app.setIn(
-        ["form", formName],
-        immutable.fromJS(values)
-      );
+      const newAppState = app.setIn(["form", formName, field], value);
       this.setState({ app: newAppState });
     },
     add: () => {
@@ -39,24 +36,28 @@ export class AppProvider extends React.Component {
         return;
       }
       let newAppState = app
-        .update("todoMap", todoMap => todoMap.set(newTodo.id, newTodo))
+        .update("todoMap", todoMap =>
+          todoMap.set(newTodo.id, immutable.fromJS(newTodo))
+        )
         .setIn(["form", "todo", "text"], "");
       newAppState = this.updateTodoIdList(newAppState);
       this.setState({ app: newAppState });
     },
-    toggle: item => () => {
+    toggle: item => {
       const { app } = this.state;
       let newAppState = app.setIn(
-        ["todoMap", item.id, "status"],
-        item.status === constants.ACTIVE ? constants.DONE : constants.ACTIVE
+        ["todoMap", item.get("id"), "status"],
+        item.get("status") === constants.ACTIVE
+          ? constants.DONE
+          : constants.ACTIVE
       );
       newAppState = this.updateTodoIdList(newAppState);
       this.setState({ app: newAppState });
     },
-    del: item => () => {
+    del: item => {
       const { app } = this.state;
       let newAppState = app.update("todoMap", todoMap =>
-        todoMap.delete(item.id)
+        todoMap.delete(item.get("id"))
       );
       newAppState = this.updateTodoIdList(newAppState);
       this.setState({ app: newAppState });
