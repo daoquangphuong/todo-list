@@ -13,7 +13,7 @@ export default class AddToDo extends React.PureComponent {
         }}
       >
         <MyTextInput
-          maxlength={100}
+          maxLength={100}
           value={data.get("text")}
           onChange={event => {
             onChange("todo", "text", event.target.value);
