@@ -6,8 +6,12 @@ export default ({ data, onSubmit }) => {
   return (
     <MyButton
       onClick={() => {
-        if (window.confirm(`Are you sure to delete this TODO: ${data.text}`)) {
-          onSubmit();
+        if (
+          window.confirm(
+            `Are you sure to delete this TODO: ${data.get("text")}`
+          )
+        ) {
+          onSubmit(data);
         }
       }}
       color="red"
