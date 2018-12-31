@@ -90,7 +90,7 @@ export class AppProvider extends React.PureComponent {
     const filterBy = app.get("filterBy");
     let todoMap = app.get("todoMap");
     if (filterBy !== constants.ALL) {
-      todoMap = todoMap.filter(i => i.status === filterBy);
+      todoMap = todoMap.filter(i => i.get("status") === filterBy);
     }
     return app.update("todoIdList", todoIdList =>
       immutable.fromJS(
